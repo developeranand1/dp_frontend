@@ -131,7 +131,7 @@ import { Product } from '../../models/fashion.model';
               <div class="d-flex align-items-center gap-2">
                 <span class="badge" [ngClass]="fashionService.isBackendConnected() ? 'bg-success' : 'bg-warning text-dark'">
                   <i class="bi bi-circle-fill me-1" style="font-size: 0.6rem;"></i>
-                  {{ fashionService.isBackendConnected() ? 'BACKEND LIVE (PORT 5000)' : 'STORE ARCHIVE MODE' }}
+                  {{ fashionService.isBackendConnected() ? 'API LIVE (ONLINE)' : 'STORE ARCHIVE MODE' }}
                 </span>
                 <a routerLink="/" class="btn btn-sm btn-outline-light rounded-0 px-3 fw-bold letter-spacing-medium" style="font-size: 0.72rem;">
                   <i class="bi bi-eye me-1"></i> VIEW LIVE STORE

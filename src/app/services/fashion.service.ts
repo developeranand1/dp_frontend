@@ -72,7 +72,8 @@ export interface InquiryRecord {
 })
 export class FashionService {
   private readonly http = inject(HttpClient);
-  readonly apiUrl = 'http://localhost:5000/api';
+  readonly apiUrl = 'https://backend.krisimarg.com/api';
+  readonly healthUrl = 'https://backend.krisimarg.com/api/health';
 
   // Main Data Signals
   readonly products = signal<Product[]>(PRODUCTS_DATA);
@@ -137,6 +138,7 @@ export class FashionService {
 
   constructor() {
     this.checkAdminSession();
+    this.checkBackendHealth();
     this.fetchProductsFromBackend();
   }
 
@@ -193,6 +195,25 @@ export class FashionService {
     this.isAdminLoggedIn.set(false);
     this.adminUser.set(null);
     this.showToast('Session Closed', 'Logged out of Admin Console safely', 'info');
+  }
+
+  /**
+   * Health check endpoint probe: GET /api/health
+   */
+  async checkBackendHealth(): Promise<{ status: string; service?: string; features?: any } | null> {
+    try {
+      const res = await firstValueFrom(
+        this.http.get<{ status: string; service?: string; features?: any }>(this.healthUrl)
+      );
+      if (res && res.status === 'online') {
+        this.isBackendConnected.set(true);
+        return res;
+      }
+      return null;
+    } catch (err) {
+      console.warn('Backend health check unreachable at ' + this.healthUrl, err);
+      return null;
+    }
   }
 
   /**
