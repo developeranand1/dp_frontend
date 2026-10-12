@@ -1,0 +1,325 @@
+/* ==========================================================================
+   DAPOSH ATELIER - LUXURY HIGH-FASHION DESIGN SYSTEM & GLOBAL STYLES
+   Inspired by Zara, Mango, Cider, Nykaa Fashion & H&M Studio
+   ========================================================================== */
+
+:root {
+  /* Editorial Palette */
+  --color-obsidian: #0c0c0c;
+  --color-noir: #141414;
+  --color-charcoal: #222222;
+  --color-smoke: #666666;
+  --color-ash: #9e9e9e;
+  --color-border-light: rgba(0, 0, 0, 0.08);
+  --color-border-subtle: #eae6df;
+  --color-alabaster: #faf8f5;
+  --color-linen: #f4efe6;
+  --color-champagne: #c5a880;
+  --color-champagne-light: #dfc8a8;
+  --color-champagne-dark: #9b7e56;
+  --color-cream: #fffdfa;
+  --color-white: #ffffff;
+  
+  /* Status */
+  --color-sale: #b91c1c;
+  --color-badge: #111111;
+
+  /* Typography */
+  --font-serif: 'Italiana', 'Playfair Display', Georgia, serif;
+  --font-editorial: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-alabaster);
+  color: var(--color-noir);
+  line-height: 1.6;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography Classes */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.letter-spacing-loose {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.letter-spacing-medium {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.letter-spacing-tight {
+  letter-spacing: -0.02em;
+}
+
+/* Buttons */
+.btn-atelier {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.85rem;
+  background-color: var(--color-obsidian);
+  color: var(--color-white);
+  border: 1px solid var(--color-obsidian);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.12);
+    transition: transform 0.4s ease;
+  }
+
+  &:hover {
+    background-color: var(--color-noir);
+    border-color: var(--color-noir);
+    color: var(--color-white);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    
+    &::before {
+      transform: translateX(100%);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-atelier-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.85rem;
+  background-color: transparent;
+  color: var(--color-obsidian);
+  border: 1px solid var(--color-obsidian);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-obsidian);
+    color: var(--color-white);
+    transform: translateY(-1px);
+  }
+}
+
+.btn-atelier-champagne {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.85rem;
+  background-color: var(--color-champagne);
+  color: var(--color-obsidian);
+  border: 1px solid var(--color-champagne);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-champagne-dark);
+    color: var(--color-white);
+    border-color: var(--color-champagne-dark);
+  }
+}
+
+.btn-atelier-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.85rem;
+  background-color: var(--color-white);
+  color: var(--color-obsidian);
+  border: 1px solid var(--color-white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-linen);
+    color: var(--color-obsidian);
+    border-color: var(--color-linen);
+    transform: translateY(-1px);
+  }
+}
+
+/* Badges */
+.badge-editorial {
+  display: inline-block;
+  padding: 0.35rem 0.65rem;
+  background-color: var(--color-noir);
+  color: var(--color-white);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 0;
+}
+
+.badge-champagne {
+  background-color: var(--color-champagne);
+  color: var(--color-obsidian);
+}
+
+.badge-sale {
+  background-color: var(--color-sale);
+  color: var(--color-white);
+}
+
+/* Glassmorphism */
+.glass-header {
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-alabaster);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c8c2b7;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999388;
+}
+
+/* Luxury Divider */
+.editorial-hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.15), transparent);
+  margin: 3rem 0;
+}
+
+/* Image zoom container */
+.img-zoom-wrapper {
+  overflow: hidden;
+  position: relative;
+  
+  img {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover img {
+    transform: scale(1.06);
+  }
+}
+
+/* Section Header Editorial Style */
+.section-kicker {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-champagne-dark);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--color-obsidian);
+  margin-bottom: 0.75rem;
+
+  @media (min-width: 992px) {
+    font-size: 3.25rem;
+  }
+}
+
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--color-smoke);
+  max-width: 580px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+/* Toast container positioning */
+.daposh-toast-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1090;
+}
